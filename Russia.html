@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Russia Travel Guide | The Largest Country</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="Russia.css">
+    <script>
+        function loadGoogleMaps() {
+          const script = document.createElement('script');
+          script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAnqNvUZLidNiF4-GtmAWIeDd04t5Xa2As&callback=initMap&libraries=places&region=JP&language=en`;
+          script.async = true;
+          script.defer = true;
+          script.onerror = () => {
+            console.error('Failed to load Google Maps API');
+            document.querySelectorAll('.map-container').forEach(container => {
+              container.innerHTML = '<p>Map service temporarily unavailable</p>';
+            });
+          };
+          document.head.appendChild(script);
+        }
+        
+        // Load the API when the page has finished loading
+        window.addEventListener('DOMContentLoaded', loadGoogleMaps);
+      </script>
+</head>
+<body>
+    <!-- Header with Hero Image -->
+    <header>
+        <div class="container">
+            <h1>Russia Travel Guide</h1>
+            <p>Discover the world's largest country with our complete guide to Russia's historic cities, stunning landscapes, rich culture, and unique traditions.</p>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Destinations <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="China.html">China</a>
+                        <a href="Italy.html">Italy</a>
+                        <a href="Russia.html">Russia</a>
+                        <a href="French.html">France</a>
+                        <a href="Japan.html">Japan</a>
+                    </div>
+                </li>
+                <li><a href="TravelGuide.html">Travel Guide</a></li>
+                <li><a href="AboutUs.html">About Us</a></li>
+                <li><a href="Feedback.html">Feedback</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Overview Section -->
+        <section class="hero" id="overview">
+            <div class="container">
+                <h2>Welcome to the Russian Federation</h2>
+                <p>Russia spans eleven time zones and two continents, offering travelers an incredible diversity of experiences from the cultural treasures of Moscow and St. Petersburg to the natural wonders of Siberia and the Caucasus Mountains.</p>
+                
+                <div class="attributes">
+                    <div class="attribute-item language">
+                        <i class="fas fa-language"></i>
+                        <h4>Language</h4>
+                        <p>Russian is the official language. English is spoken in major cities but learning Cyrillic alphabet basics is helpful.</p>
+                    </div>
+                    <div class="attribute-item religion">
+                        <i class="fas fa-praying-hands"></i>
+                        <h4>Religion</h4>
+                        <p>Predominantly Russian Orthodox, but Russia is a secular state with freedom of religion.</p>
+                    </div>
+                    <div class="attribute-item currency">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <h4>Currency</h4>
+                        <p>Russian Ruble (₽) ≈ $1 = 90₽ (as of 2023)</p>
+                    </div>
+                    <div class="attribute-item climate">
+                        <i class="fas fa-sun"></i>
+                        <h4>Climate</h4>
+                        <p>Varies from arctic in the north to continental in central regions to subtropical in the south.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+         <!-- Destinations Section -->
+         <section class="destinations" id="destinations">
+            <div class="container">
+                <h2 class="section-title">Top Russian Destinations</h2>
+                <div class="cards-container">
+                    <!-- Card 1 - Red Square -->
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/da/f2/3e/roter-platz.jpg?w=1400&h=800&s=1" alt="Red Square">
+                        </div>
+                        <div class="card-content">
+                            <h3>Red Square (Moscow)</h3>
+                            <p>The heart of Russia and a UNESCO World Heritage Site, featuring the Kremlin, Lenin's Mausoleum, and the colorful St. Basil's Cathedral.</p>
+                            <div class="map-container" id="redsquare-map" data-location="Red Square, Moscow"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2 - St. Petersburg -->
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/a4/e0/27/st-petersburg.jpg?w=1200&h=900&s=1" alt="St. Petersburg">
+                        </div>
+                        <div class="card-content">
+                            <h3>St. Petersburg</h3>
+                            <p>Russia's cultural capital with its canals, imperial palaces, and the world-famous Hermitage Museum. The White Nights in summer are magical.</p>
+                            <div class="map-container" id="stpetersburg-map" data-location="St. Petersburg, Russia"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 3 - Church of the Savior on Spilled Blood -->
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/60/a4/29/renkli.jpg?w=1800&h=1000&s=1" alt="Church of the Savior on Spilled Blood">
+                        </div>
+                        <div class="card-content">
+                            <h3>Church of the Savior on Spilled Blood</h3>
+                            <p>St. Petersburg's most colorful church, built on the site where Emperor Alexander II was assassinated, featuring stunning mosaics.</p>
+                            <div class="map-container" id="saviorchurch-map" data-location="Church of the Savior on Spilled Blood, St. Petersburg"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 4 - Golden Ring -->
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://www.visitrussia.com/assets/thumbnails/af/af82433d7017abdc2f27ac0b3dbf2969.jpg.webp" alt="Golden Ring">
+                        </div>
+                        <div class="card-content">
+                            <h3>Golden Ring</h3>
+                            <p>A loop of historic cities northeast of Moscow featuring onion-domed churches, monasteries, and traditional wooden architecture.</p>
+                            <div class="map-container" id="goldenring-map" data-location="Golden Ring, Russia"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 5 - Solovetsky Monastery -->
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/%D0%A1%D0%BE%D0%BB%D0%BE%D0%B2%D0%B5%D1%86%D0%BA%D0%B8%D0%B9_%D0%BC%D0%BE%D0%BD%D0%B0%D1%81%D1%82%D1%8B%D1%80%D1%8C.jpg/500px-%D0%A1%D0%BE%D0%BB%D0%BE%D0%B2%D0%B5%D1%86%D0%BA%D0%B8%D0%B9_%D0%BC%D0%BE%D0%BD%D0%B0%D1%81%D1%82%D1%8B%D1%80%D1%8C.jpg" alt="Solovetsky Monastery">
+                        </div>
+                        <div class="card-content">
+                            <h3>Solovetsky Monastery</h3>
+                            <p>A remote medieval monastery on the White Sea, once a fortress and later a Soviet prison camp, now a UNESCO World Heritage Site.</p>
+                            <div class="map-container" id="solovetsky-map" data-location="Solovetsky Monastery, Russia"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 6 - Trans-Siberian Railway -->
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/VL_85-022_container_train.jpg/500px-VL_85-022_container_train.jpg" alt="Trans-Siberian Railway">
+                        </div>
+                        <div class="card-content">
+                            <h3>Trans-Siberian Railway</h3>
+                            <p>The epic 9,289 km train journey from Moscow to Vladivostok, passing through eight time zones and diverse landscapes.</p>
+                            <div class="map-container" id="transsiberian-map" data-location="Trans-Siberian Railway, Russia"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+       <!-- Food & Restaurants Section -->
+<section class="food-section" id="food">
+    <div class="container">
+        <h2 class="section-title">Russian Cuisine & Best Restaurants</h2>
+        <div class="food-container">
+            <!-- Restaurant 1 - White Rabbit -->
+            <div class="food-card">
+                <div class="food-img">
+                    <img src="https://lh3.googleusercontent.com/p/AF1QipNye6Gyv7dgUICzHW-PLX-lNdRxEBv8-s8ypzca=s1360-w1360-h1020" alt="White Rabbit Restaurant">
+                </div>
+                <div class="food-content">
+                    <h3>White Rabbit</h3>
+                    <p class="price">$75–$80 per person</p>
+                    <p>Modern Russian with a creative twist. Ranked among the World's 50 Best Restaurants.</p>
+                    <p class="review">"The tasting menu is an incredible journey through Russian flavors with stunning Moscow views." - Mikhail</p>
+                </div>
+            </div>
+            
+            <!-- Restaurant 2 - Café Pushkin -->
+            <div class="food-card">
+                <div class="food-img">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmcTvjhmddmOjJlXQh5T6gdqYHZmGOA2fYP8D51wuV8iLQYtG9mta2gumSPdBwj4SGP8LSo46Ze4xLdZk9aTYd3LbwGmMbNMKfHjuzfD_e6WzzpCuLmhyphenhyphen5mRlkeYhqLmmtoQR5I4tA9mA/s1600/Cafe+Pushkin+Moscow_4.jpg" alt="Café Pushkin">
+                </div>
+                <div class="food-content">
+                    <h3>Café Pushkin</h3>
+                    <p class="price">$33–$39 per person</p>
+                    <p>Classic Russian with French influences in a 19th-century mansion atmosphere.</p>
+                    <p class="review">"The borscht here is legendary - rich, flavorful, and perfectly balanced." - Anna</p>
+                </div>
+            </div>
+            
+            <!-- Restaurant 3 - Grand Café Dr. Zhivago -->
+            <div class="food-card">
+                <div class="food-img">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/cc/d6/57/dr.jpg?w=1000&h=600&s=1" alt="Grand Café Dr. Zhivago">
+                </div>
+                <div class="food-content">
+                    <h3>Grand Café Dr. Zhivago</h3>
+                    <p class="price">~2,500 RUB ($27) per person</p>
+                    <p>Traditional Russian cuisine with Soviet-era nostalgia in the heart of Moscow.</p>
+                    <p class="review">"Pelmeni here are handmade and absolutely delicious." - Olga</p>
+                </div>
+            </div>
+            
+            <!-- Restaurant 4 - Mari Vanna -->
+            <div class="food-card">
+                <div class="food-img">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/25/1f/28/0f/mari-vanna.jpg?w=1100&h=-1&s=1" alt="Mari Vanna">
+                </div>
+                <div class="food-content">
+                    <h3>Mari Vanna</h3>
+                    <p class="price">2,000–3,000 RUB (~$22–$33) per person</p>
+                    <p>Homestyle Russian cooking in a cozy apartment setting with Soviet memorabilia.</p>
+                    <p class="review">"Feels like eating at grandma's house - comforting and authentic." - Sergei</p>
+                </div>
+            </div>
+            
+            <!-- Restaurant 5 - Palkin -->
+            <div class="food-card">
+                <div class="food-img">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPQHWohrJCpsRlQAJeRm_-d-BDILIWOP_6sQ&s" alt="Palkin Restaurant">
+                </div>
+                <div class="food-content">
+                    <h3>Palkin</h3>
+                    <p class="price">3,000–5,000 RUB (~$33–$55) per person</p>
+                    <p>Russian-European fine dining since 1785, frequented by Tchaikovsky and Dostoevsky.</p>
+                    <p class="review">"Imperial-era elegance with exquisite sturgeon dishes." - Natalia</p>
+                </div>
+            </div>
+            
+            <!-- Restaurant 6 - Cococo -->
+            <div class="food-card">
+                <div class="food-img">
+                    <img src="https://i0.wp.com/samurai-gourmet.com/wp-content/uploads/2020/04/img_5393.jpg?resize=720%2C480&ssl=1" alt="Cococo Restaurant">
+                </div>
+                <div class="food-content">
+                    <h3>Cococo</h3>
+                    <p class="price">3,000–4,500 RUB (~$33–$50) per person</p>
+                    <p>Modern Russian cuisine emphasizing local ingredients and creative presentations.</p>
+                    <p class="review">"The beetroot tartare and reindeer dishes are unforgettable." - Dmitri</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        
+       <!-- Accommodation Section -->
+<section class="accommodation" id="accommodation">
+    <div class="container">
+        <h2 class="section-title">Top Russian Accommodations</h2>
+        
+        <div class="accommodation-container">
+            <!-- Hotel 1 - Four Seasons Moscow -->
+            <div class="hotel-card">
+                <div class="hotel-img">
+                    <img src="https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/65779789.jpg?k=319f2854cc2fc25f920854741173a110748b5b7939177e70e2c82dd12017e825&o=&s=1024x" alt="Four Seasons Hotel Moscow">
+                </div>
+                <div class="hotel-content">
+                    <h3>Four Seasons Hotel Moscow</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(4.9/5)</span>
+                    </div>
+                    <p class="hotel-price">$500–$1,000/night</p>
+                    <p>Luxurious hotel near Red Square with stunning Kremlin views, elegant rooms, and world-class spa.</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Moscow, near Red Square</p>
+                </div>
+            </div>
+            
+            <!-- Hotel 2 - Hotel Metropol Moscow -->
+            <div class="hotel-card">
+                <div class="hotel-img">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/07/3a/cb/0b/caption.jpg?w=1100&h=-1&s=1" alt="Hotel Metropol Moscow">
+                </div>
+                <div class="hotel-content">
+                    <h3>Hotel Metropol Moscow</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(4.7/5)</span>
+                    </div>
+                    <p class="hotel-price">$200–$400/night</p>
+                    <p>Historic Art Nouveau hotel that inspired "A Gentleman in Moscow" with classic Russian decor.</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Moscow city center</p>
+                </div>
+            </div>
+            
+            <!-- Hotel 3 - Ararat Park Hyatt Moscow -->
+            <div class="hotel-card">
+                <div class="hotel-img">
+                    <img src="https://pix8.agoda.net/hotelImages/1378374/0/f9819ebd31d422c941b04af5ae44502f.jpg?ca=7&ce=1&s=1024x" alt="Ararat Park Hyatt Moscow">
+                </div>
+                <div class="hotel-content">
+                    <h3>Ararat Park Hyatt Moscow</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(4.8/5)</span>
+                    </div>
+                    <p class="hotel-price">$400–$700/night</p>
+                    <p>Contemporary luxury hotel with rooftop lounge, spa, and panoramic city views.</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Central Moscow</p>
+                </div>
+            </div>
+            
+            <!-- Hotel 4 - Belmond Grand Hotel Europe -->
+            <div class="hotel-card">
+                <div class="hotel-img">
+                    <img src="https://pix8.agoda.net/hotelImages/10256956/0/2a783bfb661e5ea71f19831538ca9daa.jpeg?s=1024x" alt="Belmond Grand Hotel Europe">
+                </div>
+                <div class="hotel-content">
+                    <h3>Belmond Grand Hotel Europe</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(4.9/5)</span>
+                    </div>
+                    <p class="hotel-price">$300–$600/night</p>
+                    <p>Historic hotel on Nevsky Prospekt blending classical elegance with modern comfort.</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Nevsky Prospekt, St. Petersburg</p>
+                </div>
+            </div>
+            
+            <!-- Hotel 5 - Four Seasons Lion Palace -->
+            <div class="hotel-card">
+                <div class="hotel-img">
+                    <img src="https://pix8.agoda.net/hotelImages/825854/0/6c1ecc67297431e929e741f5baa5a708.jpeg?ce=0&s=1024x" alt="Four Seasons Lion Palace">
+                </div>
+                <div class="hotel-content">
+                    <h3>Four Seasons Lion Palace</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(4.9/5)</span>
+                    </div>
+                    <p class="hotel-price">$450–$800/night</p>
+                    <p>19th-century royal palace hotel with opulent accommodations near the Hermitage.</p>
+                    <p><i class="fas fa-map-marker-alt"></i> St. Petersburg city center</p>
+                </div>
+            </div>
+            
+            <!-- Hotel 6 - Rossi Boutique Hotel -->
+            <div class="hotel-card">
+                <div class="hotel-img">
+                    <img src="https://rossihotels.com/upload/resize_cache/iblock/0b4/600_470_1619711fa078991f0a23d032687646b21/2ldo1ohymzlnz1k8gt8th83razkcatpb.webp" alt="Rossi Boutique Hotel">
+                </div>
+                <div class="hotel-content">
+                    <h3>Rossi Boutique Hotel & Spa</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(4.6/5)</span>
+                    </div>
+                    <p class="hotel-price">$150–$300/night</p>
+                    <p>Charming boutique hotel overlooking Fontanka River with spa services.</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Near Fontanka River, St. Petersburg</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        
+        <!-- Travel Tips Section -->
+        <section class="travel-tips" id="tips">
+            <div class="container">
+                <h2 class="section-title">Russia Travel Tips</h2>
+                <div class="tips-grid">
+                    <!-- Tip 1 -->
+                    <div class="tip-card best-time">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h4>Best Time to Visit</h4>
+                        <p>Late May to early October offers pleasant weather, with June-July ideal for St. Petersburg's White Nights.</p>
+                        <div class="more-content">
+                            <p>Winter (December-February) is cold but magical with snow-covered landmarks and winter festivals. Spring (April-May) can be muddy. September is great for golden autumn foliage. The Sochi area offers a subtropical climate year-round.</p>
+                            <img src="https://images.unsplash.com/photo-1512495039889-52a3b799c9bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Winter in Russia" style="width:100%; margin-top:10px; border-radius:4px;">
+                        </div>
+                    </div>
+                    
+                    <!-- Tip 2 -->
+                    <div class="tip-card currency">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <h4>Currency & Payments</h4>
+                        <p>Russia uses the Ruble (₽). Carry cash as cards may not work due to sanctions.</p>
+                        <div class="more-content">
+                            <p>ATMs are widely available in cities. Notify your bank before travel. US dollars and Euros can be exchanged easily. Credit cards from non-sanctioned banks work in major hotels and restaurants. Tipping 10-15% is customary in restaurants.</p>
+                            <img src="https://www.investopedia.com/thmb/p7lBINuQ9fvV38qvXBGqc8BM3L0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/russian-roubles-146774994-dcfec7007fb94da6ac6c4737b9278dac.jpg" alt="Russian Rubles" style="width:100%; margin-top:10px; border-radius:4px;">
+                        </div>
+                    </div>
+                    
+                    <!-- Tip 3 -->
+                    <div class="tip-card transport">
+                        <i class="fas fa-train"></i>
+                        <h4>Getting Around</h4>
+                        <p>Russia's vast size makes air travel efficient for long distances.</p>
+                        <div class="more-content">
+                            <p>The metro systems in Moscow and St. Petersburg are efficient, beautiful, and inexpensive. Russian Railways offer comfortable long-distance trains - book tickets in advance. Ride-hailing apps like Yandex.Taxi work well in cities. Driving requires an International Driving Permit.</p>
+                            <img src="https://images.unsplash.com/photo-1513326738677-b964603b136d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Moscow Metro" style="width:100%; margin-top:10px; border-radius:4px;">
+                        </div>
+                    </div>
+                    
+                    <!-- Tip 4 -->
+                    <div class="tip-card etiquette">
+                        <i class="fas fa-hands-helping"></i>
+                        <h4>Cultural Etiquette</h4>
+                        <p>Russians appreciate when visitors make an effort to understand local customs.</p>
+                        <div class="more-content">
+                            <p>Dress neatly when visiting churches (women should cover their heads). Remove shoes when entering homes. Bring a small gift if invited to someone's home. Learn basic Russian phrases - even simple attempts are appreciated. Avoid political discussions unless you know the person well.</p>
+                            <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Russian Church" style="width:100%; margin-top:10px; border-radius:4px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3>Russia Travel Guide</h3>
+            <p>Your complete resource for planning the perfect Russian adventure</p>
+            
+            <div class="social-links">
+                <a href="https://www.instagram.com/snappy_voyage/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61575073693914"><i class="fab fa-facebook"></i></a>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Russia Travel Guide. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Create Table of Contents
+        const toc = document.createElement('div');
+        toc.className = 'toc-container';
+        toc.innerHTML = `
+            <div class="toc-title">Sections</div>
+            <ul class="toc-list">
+                <li><a href="#overview" class="toc-link">Welcome to Russia</a></li>
+                <li><a href="#destinations" class="toc-link">Top Destinations</a></li>
+                <li><a href="#food" class="toc-link">Russian Cuisine</a></li>
+                <li><a href="#accommodation" class="toc-link">Accommodation</a></li>
+                <li><a href="#tips" class="toc-link">Travel Tips</a></li>
+            </ul>
+        `;
+        document.body.appendChild(toc);
+    
+        // Show TOC when scrolling down
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                toc.classList.add('active');
+            } else {
+                toc.classList.remove('active');
+            }
+            
+            // Highlight current section
+            const sections = document.querySelectorAll('section');
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 300)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('.toc-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    
+        // Smooth scrolling for TOC links
+        document.querySelectorAll('.toc-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+function initMap() {
+  if (!window.google || !google.maps) {
+    console.error('Google Maps API not loaded properly');
+    return;
+  }
+
+  // Coordinates fallback for major locations
+  const locations = {
+    "Red Square, Moscow": { lat: 55.7539, lng: 37.6208 },
+    "St. Petersburg, Russia": { lat: 59.9343, lng: 30.3351 },
+    "Church of the Savior on Spilled Blood, St. Petersburg": { lat: 59.9400, lng: 30.3289 },
+    "Golden Ring, Russia": { lat: 56.8333, lng: 40.5000 }, // Vladimir (central Golden Ring city)
+    "Solovetsky Monastery, Russia": { lat: 65.0245, lng: 35.7103 },
+    "Trans-Siberian Railway, Russia": { lat: 56.4977, lng: 84.9744 } // Novosibirsk (midpoint)
+};
+
+  document.querySelectorAll('.map-container').forEach(container => {
+    const locationName = container.getAttribute('data-location');
+    const position = locations[locationName];
+    
+    if (position) {
+      const map = new google.maps.Map(container, {
+        center: position,
+        zoom: container.closest('.hotel-card') ? 15 : 12,
+        disableDefaultUI: true,
+        styles: [{
+          featureType: "poi",
+          stylers: [{ visibility: "off" }]
+        }]
+      });
+      
+      new google.maps.Marker({
+        position: position,
+        map: map,
+        title: locationName
+      });
+    } else {
+      container.innerHTML = `<p>Location not available: ${locationName}</p>`;
+    }
+  });
+}
+
+document.querySelectorAll('.hotel-card').forEach(card => {
+    const heart = document.createElement('i');
+    heart.className = 'fas fa-heart';
+    heart.style.position = 'absolute';
+    heart.style.top = '10px';
+    heart.style.right = '10px';
+    heart.style.cursor = 'pointer';
+    
+    const hotelName = card.querySelector('h3').textContent;
+    const favorites = JSON.parse(sessionStorage.getItem('favoriteHotels') || '[]');
+    
+    if (favorites.includes(hotelName)) {
+        heart.style.color = 'red';
+    }
+    
+    heart.addEventListener('click', function() {
+        let favorites = JSON.parse(sessionStorage.getItem('favoriteHotels') || '[]');
+        const index = favorites.indexOf(hotelName);
+        
+        if (index === -1) {
+            favorites.push(hotelName);
+            this.style.color = 'red';
+        } else {
+            favorites.splice(index, 1);
+            this.style.color = 'gray';
+        }
+        
+        sessionStorage.setItem('favoriteHotels', JSON.stringify(favorites));
+    });
+    
+    card.style.position = 'relative';
+    card.appendChild(heart);
+});
+    </script>
+</body>
+</html>

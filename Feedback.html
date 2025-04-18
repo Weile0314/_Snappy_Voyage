@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feedback | Travel Community Forum</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="Feedback.css">
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>Feedback</h1>
+    <p>This page is dedicated to hearing your thoughts, suggestions, and experiences with us.<br>
+      Your input helps us understand what we're doing well and where we can improve. 
+      Whether it's a compliment, concern, or an idea for enhancement, we truly appreciate your honesty.<br>
+    Your feedback plays a crucial role in helping us grow and serve you better.</p>
+  </div>
+</header>
+
+<nav>
+  <div class="container">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Destinations <i class="fas fa-caret-down"></i></a>
+        <div class="dropdown-content">
+            <a href="China.html">China</a>
+            <a href="Italy.html">Italy</a>
+            <a href="Russia.html">Russia</a>
+            <a href="French.html">France</a>
+            <a href="Japan.html">Japan</a>
+        </div>
+      </li>
+      <li><a href="TravelGuide.html">Travel Guide</a></li>
+      <li><a href="AboutUs.html">About Us</a></li>
+      <li><a href="Feedback.html">Feedback</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="main-content">
+  <div class="container">
+
+    <div class="form-title"><span>Feedback Form</span></div>
+    <section class="form-section">
+      <form action="https://formspree.io/f/xldjzbkn" method="POST">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject" name="subject" required>
+            <option value="">Select a subject</option>
+            <option value="general">General Inquiry</option>
+            <option value="feedback">Feedback</option>
+            <option value="technical">Technical Issue</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </section>
+
+    <!-- Forum Form -->
+    <div class="form-title"><span>Forum Form</span></div>
+    <section class="form-section">
+      <form id="forumForm">
+        <div class="form-group">
+          <label for="forum-title">Discussion Title</label>
+          <input type="text" id="forum-title" name="forum-title" required />
+        </div>
+        <div class="form-group">
+          <label for="forum-category">Category</label>
+          <select id="forum-category" name="forum-category" required>
+            <option value="">Select a category</option>
+            <option value="Travel Tips">Travel Tips</option>
+            <option value="Itinerary Help">Itinerary Help</option>
+            <option value="Accommodation">Accommodation</option>
+            <option value="Transportation">Transportation</option>
+            <option value="Food & Dining">Food & Dining</option>
+            <option value="General Discussion">General Discussion</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="forum-message">Your Question/Discussion</label>
+          <textarea id="forum-message" name="forum-message" required></textarea>
+        </div>
+        <button type="submit" class="btn">Post Discussion</button>
+      </form>
+    </section>
+
+    <section>
+      <h2 class="section-title">Recent Community Discussions</h2>
+      <div id="forumPosts"></div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <h3>Travel Community</h3>
+    <p>Connect with fellow travelers and share your experiences</p>
+    <div class="social-links">
+      <a href="https://www.instagram.com/snappy_voyage/"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/profile.php?id=61575073693914"><i class="fab fa-facebook"></i></a>
+    </div>
+    <p style="margin-top:20px;">&copy; 2025 Travel Community Forum. All rights reserved.</p>
+  </div>
+</footer>
+
+<script type="module">
+  // Firebase SDK
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+  import { getFirestore, collection, addDoc, getDocs, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+
+  // Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyAUz-0oz44rLZy_G5FkgS6lL0-N3NpFDQU",
+    authDomain: "feedback-3aa03.firebaseapp.com",
+    projectId: "feedback-3aa03",
+    storageBucket: "feedback-3aa03.appspot.com",
+    messagingSenderId: "549655199501",
+    appId: "1:549655199501:web:099024991ae31d6b04fa44",
+    measurementId: "G-JNPDT33VV0"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  const forumForm = document.getElementById("forumForm");
+  const forumPostsContainer = document.getElementById("forumPosts");
+
+  forumForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const title = document.getElementById("forum-title").value.trim();
+    const category = document.getElementById("forum-category").value;
+    const message = document.getElementById("forum-message").value.trim();
+
+    if (title && category && message) {
+      await addDoc(collection(db, "forumPosts"), {
+        title,
+        category,
+        message,
+        timestamp: serverTimestamp()
+      });
+
+      forumForm.reset();
+      loadPosts();
+    }
+  });
+
+  async function loadPosts() {
+    forumPostsContainer.innerHTML = "";
+    const q = query(collection(db, "forumPosts"), orderBy("timestamp", "desc"));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      const data = doc.data();
+      const postDiv = document.createElement("div");
+      postDiv.classList.add("forum-post");
+      postDiv.innerHTML = `
+        <h4>${data.title}</h4>
+        <div class="post-meta">Posted on ${new Date(data.timestamp.seconds * 1000).toLocaleDateString()} in <strong>${data.category}</strong></div>
+        <div class="post-content"><p>${data.message}</p></div>
+      `;
+      forumPostsContainer.appendChild(postDiv);
+    });
+  }
+
+  loadPosts(); // Load posts when the page loads
+</script>
+
+</body>
+</html>

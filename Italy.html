@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Italy Travel Guide | Bel Paese</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="Italy.css">
+    <script>
+        function loadGoogleMaps() {
+          const script = document.createElement('script');
+          script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAnqNvUZLidNiF4-GtmAWIeDd04t5Xa2As&callback=initMap&libraries=places&region=JP&language=en`;
+          script.async = true;
+          script.defer = true;
+          script.onerror = () => {
+            console.error('Failed to load Google Maps API');
+            document.querySelectorAll('.map-container').forEach(container => {
+              container.innerHTML = '<p>Map service temporarily unavailable</p>';
+            });
+          };
+          document.head.appendChild(script);
+        }
+        
+        // Load the API when the page has finished loading
+        window.addEventListener('DOMContentLoaded', loadGoogleMaps);
+      </script>
+</head>
+<body>
+    <!-- Header with Hero Image -->
+    <header>
+        <div class="container">
+            <h1>Italy Travel Guide</h1>
+            <p>Discover the Bel Paese with our complete guide to Italy's best cities, historical sites, culinary delights, and cultural experiences.</p>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Destinations <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="China.html">China</a>
+                        <a href="Italy.html">Italy</a>
+                        <a href="Russia.html">Russia</a>
+                        <a href="French.html">France</a>
+                        <a href="Japan.html">Japan</a>
+                    </div>
+                </li>
+                <li><a href="TravelGuide.html">Travel Guide</a></li>
+                <li><a href="AboutUs.html">About Us</a></li>
+                <li><a href="Feedback.html">Feedback</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Overview Section -->
+        <section class="hero" id="overview">
+            <div class="container">
+                <h2>Welcome to Bel Paese</h2>
+                <p>Italy is a country of extraordinary beauty, rich history, and unparalleled cultural heritage. From the ancient ruins of Rome to the Renaissance art of Florence, the romantic canals of Venice to the stunning Amalfi Coast, Italy offers an endless array of experiences for every traveler.</p>
+                
+                <div class="attributes">
+                    <div class="attribute-item language">
+                        <i class="fas fa-language"></i>
+                        <h4>Language</h4>
+                        <p>Italian, with English widely spoken in tourist areas</p>
+                    </div>
+                    <div class="attribute-item religion">
+                        <i class="fas fa-praying-hands"></i>
+                        <h4>Religion</h4>
+                        <p>Predominantly Roman Catholic</p>
+                    </div>
+                    <div class="attribute-item currency">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <h4>Currency</h4>
+                        <p>Euro (EUR) ≈ $1 = 0.85 EUR</p>
+                    </div>
+                    <div class="attribute-item climate">
+                        <i class="fas fa-sun"></i>
+                        <h4>Climate</h4>
+                        <p>Mediterranean climate with hot summers and mild winters</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Destinations Section -->
+        <section class="destinations" id="destinations">
+            <div class="container">
+                <h2 class="section-title">Top Italy Destinations</h2>
+                <div class="cards-container">
+                    <!-- Card 1 - Capri -->
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://www.italia.it/content/dam/tdh/en/destinations/campania/le-isole-del-golfo-di-napoli/media/20210526134606-capri-campania-gettyimages-637818296.jpg" alt="Capri">
+                        </div>
+                        <div class="card-content">
+                            <h3>Capri</h3>
+                            <p>The stunning island of Capri is famous for its rugged landscape, upscale hotels, and shopping, from designer fashion to limoncello. Don't miss the Blue Grotto, a sea cave illuminated by an otherworldly blue light.</p>
+                            <div class="map-container" id="capri-map" data-location="Capri, Italy"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2 - Pompeii -->
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://64.media.tumblr.com/b07272837c3480fb40d3944c2462f45b/tumblr_pcl4krhedW1wxbjq5o4_1280.jpg" alt="Pompeii">
+                        </div>
+                        <div class="card-content">
+                            <h3>Pompeii</h3>
+                            <p>The ancient Roman city frozen in time by the eruption of Mount Vesuvius in 79 AD. Walk through remarkably preserved streets, homes, and public buildings that offer a unique glimpse into daily life 2,000 years ago.</p>
+                            <div class="map-container" id="pompeii-map" data-location="Pompeii, Italy"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 3 - Castel Sant'Angelo (Updated) -->
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://hips.hearstapps.com/hmg-prod/images/santangelo-fortress-rome-royalty-free-image-471072894-1567525050.jpg?crop=0.669xw:1.00xh;0.139xw,0&resize=1200:*" alt="Castel Sant'Angelo">
+                        </div>
+                        <div class="card-content">
+                            <h3>Castel Sant'Angelo</h3>
+                            <p>This towering cylindrical building in Rome was initially commissioned by Emperor Hadrian as a mausoleum. Later used as a fortress and castle, it now offers panoramic views of Rome and houses a museum of military history.</p>
+                            <div class="map-container" id="castel-map" data-location="Castel Sant'Angelo, Rome"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 4 - Colosseum -->
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://historyinpolitics.org/wp-content/uploads/2021/03/colosseum_in_rome-april_2007-1-_copie_2b.jpg" alt="Colosseum">
+                        </div>
+                        <div class="card-content">
+                            <h3>Colosseum</h3>
+                            <p>The iconic symbol of Imperial Rome, this massive amphitheater could hold up to 80,000 spectators for gladiatorial contests and public spectacles. One of the New7Wonders of the World.</p>
+                            <div class="map-container" id="colosseum-map" data-location="Colosseum, Rome"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 5 - San Giorgio Maggiore -->
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://colosseumandvaticantours.com/wp-content/uploads/2024/04/san-giorgio-venice.jpeg" alt="San Giorgio Maggiore">
+                        </div>
+                        <div class="card-content">
+                            <h3>San Giorgio Maggiore</h3>
+                            <p>This 16th-century Benedictine church on the island of the same name in Venice was designed by Andrea Palladio. The church's bell tower offers spectacular views of Venice and its lagoon.</p>
+                            <div class="map-container" id="sangiorgio-map" data-location="San Giorgio Maggiore, Venice"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 6 - Ponte Della Libertà -->
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Venise_Aero_Pont_de_la_Libert%C3%A9.jpg/1200px-Venise_Aero_Pont_de_la_Libert%C3%A9.jpg" alt="Ponte Della Libertà">
+                        </div>
+                        <div class="card-content">
+                            <h3>Ponte Della Libertà</h3>
+                            <p>The Liberty Bridge connects Venice to the mainland, stretching 3.85 km across the Venetian Lagoon. The bridge carries both road and rail traffic and offers beautiful views approaching Venice.</p>
+                            <div class="map-container" id="ponte-map" data-location="Ponte della Libertà, Venice"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Food & Restaurants Section -->
+        <section class="food-section" id="food">
+            <div class="container">
+                <h2 class="section-title">Local Food & Best Restaurants</h2>
+                <div class="food-container">
+                    <!-- Food 1 - Panna Cotta -->
+                    <div class="food-card">
+                        <div class="food-img">
+                            <img src="https://www.cookingclassy.com/wp-content/uploads/2021/05/panna-cotta-01-500x500.jpg" alt="Panna Cotta">
+                        </div>
+                        <div class="food-content">
+                            <h3>Panna Cotta</h3>
+                            <p class="price">€5 - €12</p>
+                            <p>This creamy, silky dessert from Northern Italy is made with sweetened cream thickened with gelatin and often served with berry coulis or caramel sauce.</p>
+                            <p class="review">"The panna cotta at Ristorante Don Alfonso near Sorrento is like tasting a cloud." - Sofia</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Food 2 - Risotto Nero -->
+                    <div class="food-card">
+                        <div class="food-img">
+                            <img src="https://images.food52.com/qje37rcs69ef13wEVT9qPu38u8I=/2016x1344/filters:format(webp)/d430df10-49d0-4525-af2d-3a74f3ea354e--risotto_al_nero_di_seppia_IMG_9382_food52.jpg" alt="Risotto Nero">
+                        </div>
+                        <div class="food-content">
+                            <h3>Risotto Nero</h3>
+                            <p class="price">€15 - €30</p>
+                            <p>Black squid ink risotto, a Venetian specialty with dramatic coloring and rich seafood flavor from cuttlefish or squid ink.</p>
+                            <p class="review">"The risotto nero at Osteria alle Testiere in Venice is worth the wait for a table." - Marco</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Food 3 - Fig Cookie -->
+                    <div class="food-card">
+                        <div class="food-img">
+                            <img src="https://i.redd.it/8vlt8foes5i21.jpg" alt="Fig Cookie">
+                        </div>
+                        <div class="food-content">
+                            <h3>Cucidati (fig cokie)</h3>
+                            <p class="price">€2 - €5</p>
+                            <p>These cucidati have a delicious fruit filling wrapped in a buttery cookie with a flourish of lemon frosting and sprinkles on top.</p>
+                            <p class="review">"The fig cookies at Pasticceria Cappello in Palermo are my favorite souvenir to bring home." - Lucia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        <!-- Accommodation Section -->
+        <section class="accommodation" id="accommodation">
+            <div class="container">
+                <h2 class="section-title">Top Accommodation</h2>
+                
+                <div class="accommodation-container">
+                    <!-- Hotel 1 -->
+                    <div class="hotel-card">
+                        <div class="hotel-img">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipMWIRlblKc46IOWYhKs8O1wEm8qoxLgr7010_Q=s680-w680-h510" alt="Hotel de Russie">
+                        </div>
+                        <div class="hotel-content">
+                            <h3>Hotel de Russie, Rome</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(4.9/5)</span>
+                            </div>
+                            <p class="hotel-price">€400 - €800/night</p>
+                            <p>Luxury hotel near Piazza del Popolo with a stunning secret garden.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Hotel 2 -->
+                    <div class="hotel-card">
+                        <div class="hotel-img">
+                            <img src="https://lh3.googleusercontent.com/p/AF1QipOMAzYCy81p7rn2zfxXr1jghgG5YvgigO0aJFD1=s680-w680-h510" alt="Belmond Hotel Caruso">
+                        </div>
+                        <div class="hotel-content">
+                            <h3>Belmond Hotel Caruso, Ravello</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(4.8/5)</span>
+                            </div>
+                            <p class="hotel-price">€500 - €1,200/night</p>
+                            <p>11th-century palace with infinity pool overlooking the Amalfi Coast.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Hotel 3 -->
+                    <div class="hotel-card">
+                        <div class="hotel-img">
+                            <img src="https://www.fivestaralliance.com/files/fivestaralliance.com/field/image/nodes/2022/47156/2-four-seasons-danieli002.jpg" alt="Hotel Danieli">
+                        </div>
+                        <div class="hotel-content">
+                            <h3>Hotel Danieli, Venice</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(4.7/5)</span>
+                            </div>
+                            <p class="hotel-price">€350 - €900/night</p>
+                            <p>Gothic palace with lagoon views just steps from St. Mark's Square.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Hotel 4 -->
+                    <div class="hotel-card">
+                        <div class="hotel-img">
+                            <img src="https://img.belmond.com/f_auto/t_2580x1299/photos/cdc/cdc-ext12.jpg" alt="Castello di Casole">
+                        </div>
+                        <div class="hotel-content">
+                            <h3>Castello di Casole, Tuscany</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(4.8/5)</span>
+                            </div>
+                            <p class="hotel-price">€600 - €1,500/night</p>
+                            <p>10th-century castle estate with vineyards and olive groves.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Travel Tips Section -->
+        <section class="travel-tips" id="tips">
+            <div class="container">
+                <h2 class="section-title">Italy Travel Tips</h2>
+                <div class="tips-grid">
+                    <!-- Tip 1 -->
+                    <div class="tip-card best-time">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h4>Best Time to Visit</h4>
+                        <p>Spring (April-June) and fall (September-October) for pleasant weather and fewer crowds.</p>
+                        <div class="more-content">
+                            <p>Spring offers mild temperatures and blooming landscapes. Summer (July-August) can be hot and crowded, especially in cities. Fall brings harvest season and beautiful foliage. Winter is ideal for skiing in the Alps and Dolomites, with fewer tourists in cities.</p>
+                            <img src="https://external-preview.redd.it/Lgw5ZzWOmUND0MZ1NN9HwSKVHlx8Mk1jvYu5GqtSkFY.jpg?width=640&crop=smart&auto=webp&s=b22c704dd831c97b54ca765ba5e326b702e1e83c" alt="Tuscan Spring" style="width:100%; margin-top:10px; border-radius:4px;">
+                        </div>
+                    </div>
+                    
+                    <!-- Tip 2 -->
+                    <div class="tip-card currency">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <h4>Currency & Payments</h4>
+                        <p>Euros are used throughout Italy. Credit cards are widely accepted but cash is preferred in small establishments.</p>
+                        <div class="more-content">
+                            <p>ATMs (Bancomat) are widely available. Inform your bank before traveling. Many small shops and restaurants have minimum credit card purchase amounts (€10-€15). Tipping is not expected but appreciated for exceptional service (round up or leave 5-10%).</p>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Italian_lira_banknotes.JPG/640px-Italian_lira_banknotes.JPG" alt="Euros" style="width:100%; margin-top:10px; border-radius:4px;">
+                        </div>
+                    </div>
+                    
+                    <!-- Tip 3 -->
+                    <div class="tip-card transport">
+                        <i class="fas fa-train"></i>
+                        <h4>Getting Around</h4>
+                        <p>Italy has an excellent train network. High-speed trains connect major cities efficiently.</p>
+                        <div class="more-content">
+                            <p>Trenitalia and Italo operate high-speed trains between major cities. Regional trains serve smaller towns. Driving is scenic but can be challenging in historic city centers (ZTL zones). Public transport is efficient in cities. Vaporettos are Venice's water buses.</p>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Frecciarossa_and_E.444R_at_Milano_Centrale.jpg" alt="Italian Train" style="width:100%; margin-top:10px; border-radius:4px;">
+                        </div>
+                    </div>
+                    
+                    <!-- Tip 4 -->
+                    <div class="tip-card etiquette">
+                        <i class="fas fa-hands-helping"></i>
+                        <h4>Cultural Etiquette</h4>
+                        <p>Italians value politeness, style, and taking time to enjoy meals.</p>
+                        <div class="more-content">
+                            <p>Greet with "buongiorno" (good day) or "buonasera" (good evening). Dress neatly when visiting churches (cover shoulders and knees). Meals are leisurely affairs - don't rush. Aperitivo (pre-dinner drinks) is a cherished ritual. Learn basic Italian phrases - locals appreciate the effort.</p>
+                            <img src="https://italiancultureportfolio.weebly.com/uploads/9/2/3/9/92390642/festival-0_orig.png" alt="Italian Cafe" style="width:100%; margin-top:10px; border-radius:4px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3>Italy Travel Guide</h3>
+            <p>Your complete resource for planning the perfect Italian adventure</p>
+            
+            <div class="social-links">
+                <a href="https://www.instagram.com/snappy_voyage/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61575073693914"><i class="fab fa-facebook"></i></a>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Italy Travel Guide. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Create Table of Contents
+        const toc = document.createElement('div');
+        toc.className = 'toc-container';
+        toc.innerHTML = `
+            <div class="toc-title">Sections</div>
+            <ul class="toc-list">
+                <li><a href="#overview" class="toc-link">Welcome to Italy</a></li>
+                <li><a href="#destinations" class="toc-link">Top Destinations</a></li>
+                <li><a href="#food" class="toc-link">Local Food</a></li>
+                <li><a href="#accommodation" class="toc-link">Accommodation</a></li>
+                <li><a href="#tips" class="toc-link">Travel Tips</a></li>
+            </ul>
+        `;
+        document.body.appendChild(toc);
+    
+        // Show TOC when scrolling down
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                toc.classList.add('active');
+            } else {
+                toc.classList.remove('active');
+            }
+            
+            // Highlight current section
+            const sections = document.querySelectorAll('section');
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 300)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('.toc-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    
+        // Smooth scrolling for TOC links
+        document.querySelectorAll('.toc-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+function initMap() {
+  if (!window.google || !google.maps) {
+    console.error('Google Maps API not loaded properly');
+    return;
+  }
+
+  // Coordinates fallback for major locations
+  const locations = {
+    "Capri, Italy": { lat: 40.5530, lng: 14.2425 },  // Center of Capri island
+    "Pompeii, Italy": { lat: 40.7500, lng: 14.4897 },  // Pompeii archaeological site
+    "Castel Sant'Angelo, Rome": { lat: 41.9031, lng: 12.4663 },  // Exact castle location
+    "Colosseum, Rome": { lat: 41.8902, lng: 12.4922 },  // Center of Colosseum
+    "San Giorgio Maggiore, Venice": { lat: 45.4295, lng: 12.3435 },  // Island location
+    "Ponte della Libertà, Venice": { lat: 45.4412, lng: 12.2986 }  // Bridge coordinates
+};
+
+  document.querySelectorAll('.map-container').forEach(container => {
+    const locationName = container.getAttribute('data-location');
+    const position = locations[locationName];
+    
+    if (position) {
+      const map = new google.maps.Map(container, {
+        center: position,
+        zoom: container.closest('.hotel-card') ? 15 : 12,
+        disableDefaultUI: true,
+        styles: [{
+          featureType: "poi",
+          stylers: [{ visibility: "off" }]
+        }]
+      });
+      
+      new google.maps.Marker({
+        position: position,
+        map: map,
+        title: locationName
+      });
+    } else {
+      container.innerHTML = `<p>Location not available: ${locationName}</p>`;
+    }
+  });
+}
+
+document.querySelectorAll('.hotel-card').forEach(card => {
+    const heart = document.createElement('i');
+    heart.className = 'fas fa-heart';
+    heart.style.position = 'absolute';
+    heart.style.top = '10px';
+    heart.style.right = '10px';
+    heart.style.cursor = 'pointer';
+    
+    const hotelName = card.querySelector('h3').textContent;
+    const favorites = JSON.parse(sessionStorage.getItem('favoriteHotels') || '[]');
+    
+    if (favorites.includes(hotelName)) {
+        heart.style.color = 'red';
+    }
+    
+    heart.addEventListener('click', function() {
+        let favorites = JSON.parse(sessionStorage.getItem('favoriteHotels') || '[]');
+        const index = favorites.indexOf(hotelName);
+        
+        if (index === -1) {
+            favorites.push(hotelName);
+            this.style.color = 'red';
+        } else {
+            favorites.splice(index, 1);
+            this.style.color = 'gray';
+        }
+        
+        sessionStorage.setItem('favoriteHotels', JSON.stringify(favorites));
+    });
+    
+    card.style.position = 'relative';
+    card.appendChild(heart);
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>China Travel Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="China.css">
+    <script>
+        function loadGoogleMaps() {
+          const script = document.createElement('script');
+          script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAnqNvUZLidNiF4-GtmAWIeDd04t5Xa2As&callback=initMap&libraries=places&region=JP&language=en`;
+          script.async = true;
+          script.defer = true;
+          script.onerror = () => {
+            console.error('Failed to load Google Maps API');
+            document.querySelectorAll('.map-container').forEach(container => {
+              container.innerHTML = '<p>Map service temporarily unavailable</p>';
+            });
+          };
+          document.head.appendChild(script);
+        }
+        
+        // Load the API when the page has finished loading
+        window.addEventListener('DOMContentLoaded', loadGoogleMaps);
+      </script>
+</head>
+<body>
+    <!-- Header with Hero Image -->
+    <header>
+        <div class="container">
+            <h1>China Travel Guide</h1>
+            <p>Discover the Middle Kingdom with our complete guide to China's best cities, historical sites, culinary delights, and cultural experiences.</p>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Destinations <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="China.html">China</a>
+                        <a href="Italy.html">Italy</a>
+                        <a href="Russia.html">Russia</a>
+                        <a href="French.html">French</a>
+                        <a href="Japan.html">Japan</a>
+                    </div>
+                </li>
+                <li><a href="TravelGuide.html">Travel Guide</a></li>
+                <li><a href="AboutUs.html">About Us</a></li>
+                <li><a href="Feedback.html">Feedback</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Overview Section -->
+        <section class="hero" id="overview">
+            <div class="container">
+                <h2>Welcome to China</h2>
+                <p>China is a country of ancient civilization and modern wonders, from the Great Wall to high-speed rail, from traditional tea houses to futuristic skyscrapers. With 5,000 years of history and rapid modernization, China offers an unparalleled travel experience.</p>
+                
+                <div class="attributes">
+                    <div class="attribute-item language">
+                        <i class="fas fa-language"></i>
+                        <h4>Language</h4>
+                        <p>Mandarin Chinese, with English spoken in major tourist areas</p>
+                    </div>
+                    <div class="attribute-item religion">
+                        <i class="fas fa-praying-hands"></i>
+                        <h4>Religion</h4>
+                        <p>Buddhism, Taoism, Islam, Christianity (officially atheist)</p>
+                    </div>
+                    <div class="attribute-item currency">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <h4>Currency</h4>
+                        <p>Renminbi (RMB/Yuan) ≈ $1 = 7.2 RMB</p>
+                    </div>
+                    <div class="attribute-item climate">
+                        <i class="fas fa-sun"></i>
+                        <h4>Climate</h4>
+                        <p>Varies from subarctic in north to tropical in south</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Destinations Section -->
+        <section class="destinations" id="destinations">
+            <div class="container">
+                <h2 class="section-title">Top China Destinations</h2>
+                <div class="cards-container">
+                    <!-- Card 1 - Great Wall -->
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Great Wall">
+                        </div>
+                        <div class="card-content">
+                            <h3>Great Wall of China</h3>
+                            <p>Stretching over 13,000 miles, this ancient fortification is one of the most impressive architectural feats in history. The Mutianyu section offers stunning views with fewer crowds.</p>
+                            <div class="map-container" id="greatwall-map" data-location="Great Wall of China, Mutianyu Section"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2 - Forbidden City -->
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://i.epochtimes.com/assets/uploads/2016/06/1606021506462483.jpg" alt="Forbidden City">
+                        </div>
+                        <div class="card-content">
+                            <h3>Forbidden City</h3>
+                            <p>The imperial palace complex in Beijing that served Chinese emperors for nearly 500 years. With 980 buildings, it's the world's largest palace complex.</p>
+                            <div class="map-container" id="forbiddencity-map" data-location="Forbidden City, Beijing"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 3 - Terracotta Army -->
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://c.files.bbci.co.uk/AE9C/production/_96000744_2.jpg" alt="Terracotta Army">
+                        </div>
+                        <div class="card-content">
+                            <h3>Terracotta Army</h3>
+                            <p>Thousands of life-sized clay soldiers buried with China's first emperor to protect him in the afterlife. Discovered in 1974 near Xi'an, this archaeological wonder dates back to 210 BCE.</p>
+                            <div class="map-container" id="terracotta-map" data-location="Terracotta Army, Xi'an"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 4 - Li River -->
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/16/fe/c6/lijiang-old-town.jpg?w=1200&h=1200&s=1" alt="Li River">
+                        </div>
+                        <div class="card-content">
+                            <h3>Li River Cruise</h3>
+                            <p>The stunning karst landscape along the Li River between Guilin and Yangshuo is immortalized in Chinese paintings. A boat cruise offers breathtaking views of these limestone peaks.</p>
+                            <div class="map-container" id="liriver-map" data-location="Li River, Guilin"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 5 - Shanghai Skyline -->
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://i0.wp.com/4.bp.blogspot.com/-nR7Iasl8QPQ/Viis1_3LVaI/AAAAAAAAAQE/zgg2U9izXN8/s1600/993x417_01.jpg" alt="Shanghai">
+                        </div>
+                        <div class="card-content">
+                            <h3>Shanghai Skyline</h3>
+                            <p>China's most cosmopolitan city features the futuristic Pudong district with the iconic Oriental Pearl Tower and Shanghai Tower, the world's second tallest building.</p>
+                            <div class="map-container" id="shanghai-map" data-location="Shanghai Skyline, Pudong"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 6 - Zhangjiajie -->
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://mediaim.expedia.com/destination/1/fa51baaf79a22fa0418effd62a14cd3c.jpg" alt="Zhangjiajie">
+                        </div>
+                        <div class="card-content">
+                            <h3>Zhangjiajie National Park</h3>
+                            <p>The towering sandstone pillars of this UNESCO site inspired the floating mountains in Avatar. The glass-bottomed bridge offers thrilling views of the canyon below.</p>
+                            <div class="map-container" id="zhangjiajie-map" data-location="Zhangjiajie National Park"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Food & Restaurants Section -->
+        <section class="food-section" id="food">
+            <div class="container">
+                <h2 class="section-title">Chinese Cuisine & Best Restaurants</h2>
+                <div class="food-container">
+                    <!-- Food 1 - Peking Duck -->
+                    <div class="food-card">
+                        <div class="food-img">
+                            <img src="https://aimg8.dlssyht.cn/u/1992744/ueditor/image/997/1992744/1617332652296092.png" alt="Peking Duck">
+                        </div>
+                        <div class="food-content">
+                            <h3>Peking Duck</h3>
+                            <p class="price">¥150 - ¥300</p>
+                            <p>Beijing's most famous dish features crispy roasted duck served with thin pancakes, hoisin sauce, and scallions. The skin is prized for its crispiness.</p>
+                            <p class="review">"Quanjude has been serving the best Peking duck since 1864 - worth the wait!" - Wei</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Food 2 - Xiaolongbao -->
+                    <div class="food-card">
+                        <div class="food-img">
+                            <img src="https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/9B13243C-AAEC-4083-B73A-DF5B00598426/Derivates/928B0E9E-D88E-4165-B49A-A9D284E63508.jpg" alt="Xiaolongbao">
+                        </div>
+                        <div class="food-content">
+                            <h3>Xiaolongbao</h3>
+                            <p class="price">¥30 - ¥80</p>
+                            <p>Shanghai's famous soup dumplings with delicate wrappers containing hot broth and pork filling. Best eaten with ginger and black vinegar.</p>
+                            <p class="review">"Din Tai Fung makes the most perfect xiaolongbao - 18 exquisite folds per dumpling!" - Li</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Food 3 - Hot Pot -->
+                    <div class="food-card">
+                        <div class="food-img">
+                            <img src="https://i.ytimg.com/vi/Q-vBM1G_UPg/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAh7U11XOIzP1odkJXlCTxinFjFgA" alt="Hot Pot">
+                        </div>
+                        <div class="food-content">
+                            <h3>Sichuan Hot Pot</h3>
+                            <p class="price">¥80 - ¥150 per person</p>
+                            <p>Interactive dining where you cook thinly sliced meats and vegetables in a simmering, spicy broth. The numbing Sichuan peppercorns create a unique ma-la sensation.</p>
+                            <p class="review">"Haidi Lao's service is legendary - they'll even do your nails while you wait!" - Zhang</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Accommodation Section -->
+        <section class="accommodation" id="accommodation">
+            <div class="container">
+                <h2 class="section-title">Top Accommodation</h2>
+                
+                <div class="accommodation-container">
+                    <!-- Hotel 1 - Aman at Summer Palace -->
+                    <div class="hotel-card">
+                        <div class="hotel-img">
+                            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/d6/5b/4a/aman-summer-palace-china.jpg?w=900&h=500&s=1" alt="Aman at Summer Palace">
+                        </div>
+                        <div class="hotel-content">
+                            <h3>Aman at Summer Palace</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(4.9/5)</span>
+                            </div>
+                            <p class="hotel-price">¥5,000 - ¥10,000/night</p>
+                            <p>Luxury resort adjacent to Beijing's Summer Palace with private access to the UNESCO site through a secret gate.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Hotel 2 - The Peninsula Shanghai -->
+                    <div class="hotel-card">
+                        <div class="hotel-img">
+                            <img src="https://www.peninsula.com/en/-/media/news-room/about-us/sh-company-profile.png?mw=905&hash=A4E51349808A078FF7158F050168263C" alt="The Peninsula Shanghai">
+                        </div>
+                        <div class="hotel-content">
+                            <h3>The Peninsula Shanghai</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(4.8/5)</span>
+                            </div>
+                            <p class="hotel-price">¥3,500 - ¥8,000/night</p>
+                            <p>Art Deco masterpiece on the Bund with stunning views of Pudong's skyline and Rolls Royce airport transfers.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Hotel 3 - Banyan Tree Lijiang -->
+                    <div class="hotel-card">
+                        <div class="hotel-img">
+                            <img src="https://www.ahstatic.com/photos/b1v6_ho_00_p_1024x768.jpg" alt="Banyan Tree Lijiang">
+                        </div>
+                        <div class="hotel-content">
+                            <h3>Banyan Tree Lijiang</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(4.7/5)</span>
+                            </div>
+                            <p class="hotel-price">¥2,800 - ¥6,500/night</p>
+                            <p>Traditional Naxi-style villas with private pools overlooking Jade Dragon Snow Mountain.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Hotel 4 - Commune by the Great Wall -->
+                    <div class="hotel-card">
+                        <div class="hotel-img">
+                            <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/331524621.jpg?k=5776b4683b2a175d20d39f0f991a4c1ab96fe5d07f841482b962679d65fe758c&o=&hp=1" alt="Commune by the Great Wall">
+                        </div>
+                        <div class="hotel-content">
+                            <h3>Commune by the Great Wall</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(4.8/5)</span>
+                            </div>
+                            <p class="hotel-price">¥1,800 - ¥4,000/night</p>
+                            <p>Architectural wonder featuring villas designed by Asian architects, with private access to a wild section of the Great Wall.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Travel Tips Section -->
+        <section class="travel-tips" id="tips">
+            <div class="container">
+                <h2 class="section-title">China Travel Tips</h2>
+                <div class="tips-grid">
+                    <!-- Tip 1 -->
+                    <div class="tip-card best-time">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h4>Best Time to Visit</h4>
+                        <p>Spring (April-May) and autumn (September-October) offer the most pleasant weather across China.</p>
+                        <div class="more-content">
+                            <p>Spring brings comfortable temperatures and blooming flowers. Summer can be extremely hot and humid, especially in southern China. Autumn offers clear skies and comfortable temperatures. Winter is cold in the north but offers fewer crowds at major sites.</p>
+                            <img src="https://studycli.org/wp-content/uploads/2021/06/Best-Places-in-China-36.jpg" alt="Great Wall in Autumn" style="width:100%; margin-top:10px; border-radius:4px;">
+                        </div>
+                    </div>
+                    
+                    <!-- Tip 2 -->
+                    <div class="tip-card currency">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <h4>Currency & Payments</h4>
+                        <p>Cash is still king in China, though mobile payments (WeChat Pay/Alipay) dominate daily transactions.</p>
+                        <div class="more-content">
+                            <p>Foreign credit cards work at major hotels and stores but not widely accepted elsewhere. ATMs are plentiful in cities. Exchange money at banks (passport required). Mobile payments require a Chinese bank account, so visitors should carry sufficient cash (¥100-300 per day).</p>
+                            <img src="https://lh3.googleusercontent.com/proxy/CtWWLHqTJG4y9k9WtO0alxnOZIBhk6JwvCGwv_uRXRIhZM6MUqFh0w3mHQMDDeXQw-M7A_ditji9P0auivvruACCwWiQA2mA3zpz2MkcO6avlwUQM1AVFAtO0Th1qA" alt="Chinese Yuan" style="width:100%; margin-top:10px; border-radius:4px;">
+                        </div>
+                    </div>
+                    
+                    <!-- Tip 3 -->
+                    <div class="tip-card transport">
+                        <i class="fas fa-train"></i>
+                        <h4>Getting Around</h4>
+                        <p>China's high-speed rail network is the world's most extensive and efficient way to travel between cities.</p>
+                        <div class="more-content">
+                            <p>Trains reach speeds of 350 km/h (217 mph). Book tickets in advance through Ctrip or at stations (passport required). Metro systems in major cities are cheap and efficient. Didi is China's Uber equivalent. Taxis are affordable but language can be a barrier outside major cities.</p>
+                            <img src="https://cms.getnomad.app/uploads/CRH_2_A_2260_and_2011_at_Xiamen_Railway_Station_20170727_1_32ef689a21.jpg" alt="Chinese high-speed train" style="width:100%; margin-top:10px; border-radius:4px;">
+                        </div>
+                    </div>
+                    
+                    <!-- Tip 4 -->
+                    <div class="tip-card etiquette">
+                        <i class="fas fa-hands-helping"></i>
+                        <h4>Cultural Etiquette</h4>
+                        <p>Understanding Chinese customs will greatly enhance your travel experience.</p>
+                        <div class="more-content">
+                            <p>Greet with a slight nod or handshake. Present/receive items with both hands. Avoid pointing with fingers - use an open hand. Don't stick chopsticks upright in rice (resembles funeral incense). Try all foods offered as refusing may cause offense. Bargaining is expected in markets but not in stores.</p>
+                            <img src="https://www.ymanz.com/wp-content/uploads/2020/01/2020011406430132.jpg" alt="Chinese tea ceremony" style="width:100%; margin-top:10px; border-radius:4px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3>China Travel Guide</h3>
+            <p>Your complete resource for planning the perfect Chinese adventure</p>
+            
+            <div class="social-links">
+                <a href="https://www.instagram.com/snappy_voyage/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61575073693914"><i class="fab fa-facebook"></i></a>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 China Travel Guide. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Create Table of Contents
+        const toc = document.createElement('div');
+        toc.className = 'toc-container';
+        toc.innerHTML = `
+            <div class="toc-title">Sections</div>
+            <ul class="toc-list">
+                <li><a href="#overview" class="toc-link">Welcome to China</a></li>
+                <li><a href="#destinations" class="toc-link">Top Destinations</a></li>
+                <li><a href="#food" class="toc-link">Local Food</a></li>
+                <li><a href="#accommodation" class="toc-link">Accommodation</a></li>
+                <li><a href="#tips" class="toc-link">Travel Tips</a></li>
+            </ul>
+        `;
+        document.body.appendChild(toc);
+    
+        // Show TOC when scrolling down
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                toc.classList.add('active');
+            } else {
+                toc.classList.remove('active');
+            }
+            
+            // Highlight current section
+            const sections = document.querySelectorAll('section');
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 300)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('.toc-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    
+        // Smooth scrolling for TOC links
+        document.querySelectorAll('.toc-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+function initMap() {
+  if (!window.google || !google.maps) {
+    console.error('Google Maps API not loaded properly');
+    return;
+  }
+
+  // Coordinates fallback for major locations
+  const locations = {
+    "Great Wall of China, Mutianyu Section": { lat: 40.4319, lng: 116.5704 },  // Popular tourist section
+    "Forbidden City, Beijing": { lat: 39.9163, lng: 116.3903 },  // Center of the complex
+    "Terracotta Army, Xi'an": { lat: 34.3843, lng: 109.2789 },  // Museum location
+    "Li River, Guilin": { lat: 25.0756, lng: 110.4542 },  // Scenic cruise area
+    "Shanghai Skyline, Pudong": { lat: 31.2397, lng: 121.4998 },  // Bund viewpoint
+    "Zhangjiajie National Park": { lat: 29.3544, lng: 110.5359 }  // Avatar Mountains area
+};
+
+  document.querySelectorAll('.map-container').forEach(container => {
+    const locationName = container.getAttribute('data-location');
+    const position = locations[locationName];
+    
+    if (position) {
+      const map = new google.maps.Map(container, {
+        center: position,
+        zoom: container.closest('.hotel-card') ? 15 : 12,
+        disableDefaultUI: true,
+        styles: [{
+          featureType: "poi",
+          stylers: [{ visibility: "off" }]
+        }]
+      });
+      
+      new google.maps.Marker({
+        position: position,
+        map: map,
+        title: locationName
+      });
+    } else {
+      container.innerHTML = `<p>Location not available: ${locationName}</p>`;
+    }
+  });
+}
+
+document.querySelectorAll('.hotel-card').forEach(card => {
+    const heart = document.createElement('i');
+    heart.className = 'fas fa-heart';
+    heart.style.position = 'absolute';
+    heart.style.top = '10px';
+    heart.style.right = '10px';
+    heart.style.cursor = 'pointer';
+    
+    const hotelName = card.querySelector('h3').textContent;
+    const favorites = JSON.parse(sessionStorage.getItem('favoriteHotels') || '[]');
+    
+    if (favorites.includes(hotelName)) {
+        heart.style.color = 'red';
+    }
+    
+    heart.addEventListener('click', function() {
+        let favorites = JSON.parse(sessionStorage.getItem('favoriteHotels') || '[]');
+        const index = favorites.indexOf(hotelName);
+        
+        if (index === -1) {
+            favorites.push(hotelName);
+            this.style.color = 'red';
+        } else {
+            favorites.splice(index, 1);
+            this.style.color = 'gray';
+        }
+        
+        sessionStorage.setItem('favoriteHotels', JSON.stringify(favorites));
+    });
+    
+    card.style.position = 'relative';
+    card.appendChild(heart);
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>France Travel Guide | Land of Art and Culture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="French.css">
+    <script>
+        function loadGoogleMaps() {
+          const script = document.createElement('script');
+          script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAnqNvUZLidNiF4-GtmAWIeDd04t5Xa2As&callback=initMap&libraries=places&region=JP&language=en`;
+          script.async = true;
+          script.defer = true;
+          script.onerror = () => {
+            console.error('Failed to load Google Maps API');
+            document.querySelectorAll('.map-container').forEach(container => {
+              container.innerHTML = '<p>Map service temporarily unavailable</p>';
+            });
+          };
+          document.head.appendChild(script);
+        }
+        
+        // Load the API when the page has finished loading
+        window.addEventListener('DOMContentLoaded', loadGoogleMaps);
+      </script>
+</head>
+<body>
+    <!-- Header with Hero Image -->
+    <header>
+        <div class="container">
+            <h1>France Travel Guide</h1>
+            <p>Discover the Land of Art and Culture with our complete guide to France's iconic cities, historic landmarks, culinary delights, and romantic experiences.</p>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Destinations <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="China.html">China</a>
+                        <a href="Italy.html">Italy</a>
+                        <a href="Russia.html">Russia</a>
+                        <a href="French.html">French</a>
+                        <a href="Japan.html">Japan</a>
+                    </div>
+                </li>
+                <li><a href="TravelGuide.html">Travel Guide</a></li>
+                <li><a href="AboutUs.html">About Us</a></li>
+                <li><a href="Feedback.html">Feedback</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Overview Section -->
+        <section class="hero" id="overview">
+            <div class="container">
+                <h2>Welcome to the Land of Art and Culture</h2>
+                <p>France, officially known as the French Republic, is a country located in Western Europe. It's one of the most influential nations in the world, known for its rich history, art, culture, cuisine, and global political and economic presence.</p>
+                
+                <div class="attributes">
+                    <div class="attribute-item language">
+                        <i class="fas fa-language"></i>
+                        <h4>Language</h4>
+                        <p>French, with some English spoken in tourist areas</p>
+                    </div>
+                    <div class="attribute-item religion">
+                        <i class="fas fa-praying-hands"></i>
+                        <h4>Religion</h4>
+                        <p>Predominantly Roman Catholic, with growing secularism</p>
+                    </div>
+                    <div class="attribute-item currency">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <h4>Currency</h4>
+                        <p>Euro (€) ≈ $1 = 0.90€</p>
+                    </div>
+                    <div class="attribute-item climate">
+                        <i class="fas fa-sun"></i>
+                        <h4>Climate</h4>
+                        <p>Temperate with regional variations from Mediterranean to oceanic</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Destinations Section -->
+        <section class="destinations" id="destinations">
+            <div class="container">
+                <h2 class="section-title">Top France Destinations</h2>
+                <div class="cards-container">
+                    <!-- Card 1 -->
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Paris">
+                        </div>
+                        <div class="card-content">
+                            <h3>Paris</h3>
+                            <p>The City of Light, it's famous for iconic landmarks like the Eiffel Tower, the Louvre Museum, and Notre-Dame Cathedral. Paris charms visitors with its romantic ambiance, historic architecture, charming cafes, and vibrant street life.</p>
+                            <div class="map-container" id="paris-map" data-location="Paris, France"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2 -->
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://www.travelandleisure.com/thmb/ctkSPsyA2uOSeQ5jq6k-TBkDO8s=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/TAL-rendering-mer-de-glace-montenvers-france-FRICECAVE1223-199bfb8614cd4628bdb42b319713409a.jpg" alt="The French Alps">
+                        </div>
+                        <div class="card-content">
+                            <h3>The French Alps</h3>
+                            <p>The tallest mountain in Western Europe, it is a majestic mountain range in southeastern France, home to Mont Blanc, the tallest peak in Western Europe. Known for dramatic peaks, scenic valleys, and year-round outdoor adventures, it is a top destination for skiing, hiking, and mountaineering.</p>
+                            <div class="map-container" id="alps-map" data-location="French Alps, France"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 3 -->
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://hips.hearstapps.com/hmg-prod/images/villefranche-sur-mer-on-the-french-riviera-royalty-free-image-1713237547.jpg?crop=1.00xw:0.846xh;0,0.113xh&resize=2048:*" alt="French Riviera">
+                        </div>
+                        <div class="card-content">
+                            <h3>French Riviera</h3>
+                            <p>Glamorous Mediterranean coastline in southeastern France, known for its sunny weather, beautiful beaches, and luxury lifestyle. From stylish Nice and Cannes to the glitz of Monaco, it is a perfect blend of natural beauty, culture, and sophistication.</p>
+                            <div class="map-container" id="riviera-map" data-location="French Riviera, France"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 4 -->
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://cruztrav.com/wp-content/uploads/2016/08/bigstock-View-Of-River-Saone-At-Night-51818782.jpg" alt="Lyon">
+                        </div>
+                        <div class="card-content">
+                            <h3>Lyon</h3>
+                            <p>vibrant city in eastern France, known for its rich history, Renaissance architecture, and world-famous cuisine. Located at the junction of the Rhône and Saône rivers, it is a cultural hub with lively markets, museums, and charming old town streets.</p>
+                            <div class="map-container" id="lyon-map" data-location="Lyon, France"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 5 -->
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://images.squarespace-cdn.com/content/v1/5acf80ef9772ae2ec4a657ce/1525801716761-3TAH5V9DN19GHJ8ICDHE/Chambord+Chateau+-+5+Most+Magnificent+Castles+of+the+Loire+Valley+-+A+Happy+Passport+%23chateau+%23castle+%23france+%23chambord?format=2500w" alt="Loire Valley">
+                        </div>
+                        <div class="card-content">
+                            <h3>Loire Valley</h3>
+                            <p>Picturesque region in central France, famous for its stunning châteaux, rolling vineyards, and charming towns. Often called the "Garden of France," it offers a blend of rich history, breathtaking landscapes, and exceptional wine.</p>
+                            <div class="map-container" id="loire-map" data-location="Loire Valley, France"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 6 -->
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://www.emeraldcruises.eu/-/media/project/scenic/emerald-cruises/blogs/t/the-top-8-towns-and-cities-in-provence/03_image--the-top-8-towns-and-cities-of-provence/ecer_lavendar_field_provence_france.jpg?h=1500&iar=0&w=3000&rev=44a8516618274aedad3b6082aa754717&hash=C524E9C7040F602DD7AED75E9CE58585" alt="Provence">
+                        </div>
+                        <div class="card-content">
+                            <h3>Provence</h3>
+                            <p>Sun-kissed region in southeastern France, known for its lavender fields, picturesque villages, and Mediterranean landscapes. With its rich history, vibrant markets, and delightful cuisine, Provence offers a perfect blend of natural beauty and cultural charm.</p>
+                            <div class="map-container" id="provence-map" data-location="Provence, France"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        <!-- Food & Restaurants Section -->
+        <section class="food-section" id="food">
+            <div class="container">
+                <h2 class="section-title">Local Food & Best Restaurants</h2>
+                <div class="food-container">
+                    <!-- Food 1 -->
+                    <div class="food-card">
+                        <div class="food-img">
+                            <img src="https://cdn.kuali.com/wp-content/uploads/2004/07/16015122/croissants-wooden-cutting-board.jpg" alt="Croissant">
+                        </div>
+                        <div class="food-content">
+                            <h3>Croissant</h3>
+                            <p class="price">€1 - €3</p>
+                            <p>Buttery, flaky pastry that's a French breakfast staple.</p>
+                            <p class="review">"The croissants at Du Pain et des Idées in Paris are perfection." - Sophie</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Food 2 -->
+                    <div class="food-card">
+                        <div class="food-img">
+                            <img src="https://static01.nyt.com/images/2023/08/24/multimedia/MC-Coq-Au-Van-ctpm/MC-Coq-Au-Van-ctpm-master768.jpg?quality=75&auto=webp" alt="Coq au Vin">
+                        </div>
+                        <div class="food-content">
+                            <h3>Coq au Vin</h3>
+                            <p class="price">€15 - €30</p>
+                            <p>Classic French dish of chicken braised with wine, mushrooms, and garlic.</p>
+                            <p class="review">"The rustic version at Le Bourguignon du Marais is unforgettable." - Jacques</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Food 3 -->
+                    <div class="food-card">
+                        <div class="food-img">
+                            <img src="https://assets.epicurious.com/photos/61f423f29c9591f7270e22c6/1:1/w_1920,c_limit/Bouillabaise_RECIPE_20220125_1776_V1_final.jpg" alt="Bouillabaisse">
+                        </div>
+                        <div class="food-content">
+                            <h3>Bouillabaisse</h3>
+                            <p class="price">€25 - €50</p>
+                            <p>Traditional Provençal fish stew originating from Marseille.</p>
+                            <p class="review">"Le Miramar serves the most authentic bouillabaisse in Marseille." - Claire</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Accommodation Section -->
+        <section class="accommodation" id="accommodation">
+            <div class="container">
+                <h2 class="section-title">Top Accommodation</h2>
+                
+                <div class="accommodation-container">
+                    <!-- Hotel 1 -->
+                    <div class="hotel-card">
+                        <div class="hotel-img">
+                            <img src="https://media.ritzparis.com/medias/domain12964/media100003/1071-ijmfajeqlo-web4k.jpg?twic=v1/cover=592x380/quality=85" alt="Hôtel Ritz Paris">
+                        </div>
+                        <div class="hotel-content">
+                            <h3>Hôtel Ritz Paris</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(4.9/5)</span>
+                            </div>
+                            <p class="hotel-price">€800 - €2,000/night</p>
+                            <p>Legendary luxury hotel on Place Vendôme with Chanel spa and Hemingway Bar.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Hotel 2 -->
+                    <div class="hotel-card">
+                        <div class="hotel-img">
+                            <img src="https://cf.bstatic.com/xdata/images/hotel/max300/608265962.jpg?k=29219492f082761efcae45d16efa99949639fcf48dab9bf0cf9dba634b9b6451&o=" alt="Château de la Chèvre d'Or">
+                        </div>
+                        <div class="hotel-content">
+                            <h3>Château de la Chèvre d'Or</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(4.8/5)</span>
+                            </div>
+                            <p class="hotel-price">€400 - €1,200/night</p>
+                            <p>Luxury hotel in Eze village with stunning Mediterranean views.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Hotel 3 -->
+                    <div class="hotel-card">
+                        <div class="hotel-img">
+                            <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/83738872.jpg?k=bc7866a168fea41035d8f6719fe29d4b2d1bb9e90fffd0a2da611cc48e5f1666&o=&hp=1" alt="Le Mas des Herbes Blanches">
+                        </div>
+                        <div class="hotel-content">
+                            <h3>Le Mas des Herbes Blanches</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(4.7/5)</span>
+                            </div>
+                            <p class="hotel-price">€300 - €800/night</p>
+                            <p>Luxury Provençal retreat with spa and panoramic Luberon views.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Hotel 4 -->
+                    <div class="hotel-card">
+                        <div class="hotel-img">
+                            <img src="https://cf.bstatic.com/xdata/images/hotel/max500/469806222.jpg?k=4fb1d9c5bb4b3e20cec36fe0f3783d78c948db793b60996319c51585c3f01da4&o=" alt="Château d'Artigny">
+                        </div>
+                        <div class="hotel-content">
+                            <h3>Château d'Artigny</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(4.8/5)</span>
+                            </div>
+                            <p class="hotel-price">€250 - €600/night</p>
+                            <p>18th-century castle in Loire Valley with gourmet restaurant.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Travel Tips Section -->
+        <section class="travel-tips" id="tips">
+            <div class="container">
+                <h2 class="section-title">France Travel Tips</h2>
+                <div class="tips-grid">
+                    <!-- Tip 1 -->
+                    <div class="tip-card best-time">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h4>Best Time to Visit</h4>
+                        <p>Spring (April-June) or fall (September-October) for pleasant weather and fewer crowds.</p>
+                        <div class="more-content">
+                            <p>Spring brings mild temperatures and blooming flowers. Summer (July-August) is peak season with hot weather and crowds. Fall offers harvest festivals and beautiful colors. Winter is ideal for skiing in the Alps and Christmas markets.</p>
+                            <img src="https://i0.wp.com/www.bad-ems.info/wp-content/uploads/2024/05/aim_19393_1.jpg?w=800&ssl=1" alt="Paris Spring" style="width:100%; margin-top:10px; border-radius:4px;">
+                        </div>
+                    </div>
+                    
+                    <!-- Tip 2 -->
+                    <div class="tip-card currency">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <h4>Currency & Payments</h4>
+                        <p>France uses the Euro. Credit cards are widely accepted, but carry some cash.</p>
+                        <div class="more-content">
+                            <p>Major credit cards are accepted in most establishments. Smaller shops and markets may prefer cash. ATMs (distributeurs) are widely available. Tipping is included in service charges (service compris), but rounding up is appreciated.</p>
+                            <img src="https://www.parisperfect.com/cdn-cgi/image/format=auto,width=1256/https://www.parisperfect.com/g/photos/upload/sml_611105914-1443144686-euro-money.jpg" alt="Euros" style="width:100%; margin-top:10px; border-radius:4px;">
+                        </div>
+                    </div>
+                    
+                    <!-- Tip 3 -->
+                    <div class="tip-card transport">
+                        <i class="fas fa-train"></i>
+                        <h4>Getting Around</h4>
+                        <p>France has an excellent public transportation system.</p>
+                        <div class="more-content">
+                            <p>TGV high-speed trains connect major cities efficiently. Metro systems operate in Paris, Lyon, and Marseille. Regional TER trains serve smaller towns. Driving is good for countryside exploration. In cities, walking and cycling are often best.</p>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/SNCF_TGV_Duplex_2N2_4718_%288464339495%29.jpg" alt="TGV Train" style="width:100%; margin-top:10px; border-radius:4px;">
+                        </div>
+                    </div>
+                    
+                    <!-- Tip 4 -->
+                    <div class="tip-card etiquette">
+                        <i class="fas fa-hands-helping"></i>
+                        <h4>Cultural Etiquette</h4>
+                        <p>French culture values politeness and formality.</p>
+                        <div class="more-content">
+                            <p>Greet shopkeepers with "Bonjour" and say "Au revoir" when leaving. Dress neatly when dining out. Learn basic French phrases - attempts are appreciated. Don't rush meals - dining is a social experience. Avoid loud conversations in public.</p>
+                            <img src="https://frenchmoments.eu/wp-content/uploads/2022/09/Paris-French-Flag-LR-by-RossHelen-via-Envato-Elements-2048x1367.jpg" alt="French Cafe" style="width:100%; margin-top:10px; border-radius:4px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3>France Travel Guide</h3>
+            <p>Your complete resource for planning the perfect French adventure</p>
+            
+            <div class="social-links">
+                <a href="https://www.instagram.com/snappy_voyage/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61575073693914"><i class="fab fa-facebook"></i></a>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 France Travel Guide. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Create Table of Contents
+        const toc = document.createElement('div');
+        toc.className = 'toc-container';
+        toc.innerHTML = `
+            <div class="toc-title">Sections</div>
+            <ul class="toc-list">
+                <li><a href="#overview" class="toc-link">Welcome to French</a></li>
+                <li><a href="#destinations" class="toc-link">Top Destinations</a></li>
+                <li><a href="#food" class="toc-link">Local Food</a></li>
+                <li><a href="#accommodation" class="toc-link">Accommodation</a></li>
+                <li><a href="#tips" class="toc-link">Travel Tips</a></li>
+            </ul>
+        `;
+        document.body.appendChild(toc);
+    
+        // Show TOC when scrolling down
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                toc.classList.add('active');
+            } else {
+                toc.classList.remove('active');
+            }
+            
+            // Highlight current section
+            const sections = document.querySelectorAll('section');
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 300)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('.toc-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    
+        // Smooth scrolling for TOC links
+        document.querySelectorAll('.toc-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        function initMap() {
+  if (!window.google || !google.maps) {
+    console.error('Google Maps API not loaded properly');
+    return;
+  }
+
+  // Coordinates fallback for major locations
+  const locations = {
+    "Paris, France": { lat: 48.8566, lng: 2.3522 },          // Center of Paris
+    "French Alps, France": { lat: 45.8326, lng: 6.8652 },    // Chamonix area
+    "French Riviera, France": { lat: 43.5528, lng: 7.0174 }, // Nice coordinates
+    "Lyon, France": { lat: 45.7640, lng: 4.8357 },          // City center
+    "Loire Valley, France": { lat: 47.3926, lng: 0.6882 },  // Near Château de Chenonceau
+    "Provence, France": { lat: 43.9356, lng: 6.0679 }       // Near Valensole lavender fields
+};
+
+  document.querySelectorAll('.map-container').forEach(container => {
+    const locationName = container.getAttribute('data-location');
+    const position = locations[locationName];
+    
+    if (position) {
+      const map = new google.maps.Map(container, {
+        center: position,
+        zoom: container.closest('.hotel-card') ? 15 : 12,
+        disableDefaultUI: true,
+        styles: [{
+          featureType: "poi",
+          stylers: [{ visibility: "off" }]
+        }]
+      });
+      
+      new google.maps.Marker({
+        position: position,
+        map: map,
+        title: locationName
+      });
+    } else {
+      container.innerHTML = `<p>Location not available: ${locationName}</p>`;
+    }
+  });
+}
+
+document.querySelectorAll('.hotel-card').forEach(card => {
+    const heart = document.createElement('i');
+    heart.className = 'fas fa-heart';
+    heart.style.position = 'absolute';
+    heart.style.top = '10px';
+    heart.style.right = '10px';
+    heart.style.cursor = 'pointer';
+    
+    const hotelName = card.querySelector('h3').textContent;
+    const favorites = JSON.parse(sessionStorage.getItem('favoriteHotels') || '[]');
+    
+    if (favorites.includes(hotelName)) {
+        heart.style.color = 'red';
+    }
+    
+    heart.addEventListener('click', function() {
+        let favorites = JSON.parse(sessionStorage.getItem('favoriteHotels') || '[]');
+        const index = favorites.indexOf(hotelName);
+        
+        if (index === -1) {
+            favorites.push(hotelName);
+            this.style.color = 'red';
+        } else {
+            favorites.splice(index, 1);
+            this.style.color = 'gray';
+        }
+        
+        sessionStorage.setItem('favoriteHotels', JSON.stringify(favorites));
+    });
+    
+    card.style.position = 'relative';
+    card.appendChild(heart);
+});
+    </script>
+</body>
+</html>

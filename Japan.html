@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japan Travel Guide | Land of the Rising Sun</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="Japan.css">
+    <!-- Add this right before your existing styles -->
+    <script>
+        function loadGoogleMaps() {
+          const script = document.createElement('script');
+          script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAnqNvUZLidNiF4-GtmAWIeDd04t5Xa2As&callback=initMap&libraries=places&region=JP&language=en`;
+          script.async = true;
+          script.defer = true;
+          script.onerror = () => {
+            console.error('Failed to load Google Maps API');
+            document.querySelectorAll('.map-container').forEach(container => {
+              container.innerHTML = '<p>Map service temporarily unavailable</p>';
+            });
+          };
+          document.head.appendChild(script);
+        }
+        
+        // Load the API when the page has finished loading
+        window.addEventListener('DOMContentLoaded', loadGoogleMaps);
+      </script>
+</head>
+<body>
+    <!-- Header with Hero Image -->
+    <header>
+        <div class="container">
+            <h1>Japan Travel Guide</h1>
+            <p>Discover the Land of the Rising Sun with our complete guide to Japan's best cities, temples, natural wonders, and cultural experiences.</p>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Destinations <i class="fas fa-caret-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="China.html">China</a>
+                        <a href="Italy.html">Italy</a>
+                        <a href="Russia.html">Russia</a>
+                        <a href="French.html">French</a>
+                        <a href="Japan.html">Japan</a>
+                    </div>
+                </li>
+                <li><a href="TravelGuide.html">Travel Guide</a></li>
+                <li><a href="AboutUs.html">About Us</a></li>
+                <li><a href="Feedback.html">Feedback</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Overview Section -->
+        <section class="hero" id="overview">
+            <div class="container">
+                <h2>Welcome to the Land of the Rising Sun</h2>
+                <p>Japan is an island nation known for its blend of ancient traditions and cutting-edge modernity. From the neon-lit streets of Tokyo to the serene temples of Kyoto, the snow festivals of Hokkaido to the tropical beaches of Okinawa, Japan offers an incredibly diverse range of experiences for every traveler.</p>
+                
+                <div class="attributes">
+                    <div class="attribute-item language">
+                        <i class="fas fa-language"></i>
+                        <h4>Language</h4>
+                        <p>Japanese, with some English in major cities and tourist areas</p>
+                    </div>
+                    <div class="attribute-item religion">
+                        <i class="fas fa-praying-hands"></i>
+                        <h4>Religion</h4>
+                        <p>Shinto and Buddhism (often practiced simultaneously)</p>
+                    </div>
+                    <div class="attribute-item currency">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <h4>Currency</h4>
+                        <p>Japanese Yen (JPY) ≈ $1 = 110 JPY</p>
+                    </div>
+                    <div class="attribute-item climate">
+                        <i class="fas fa-sun"></i>
+                        <h4>Climate</h4>
+                        <p>Varies from subtropical to temperate with four distinct seasons</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Destinations Section -->
+        <section class="destinations" id="destinations">
+            <div class="container">
+                <h2 class="section-title">Top Japan Destinations</h2>
+                <div class="cards-container">
+                    <!-- Card 1 -->
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://media.cntraveler.com/photos/678166b8a51cc7c3458df25a/16:9/w_2580,c_limit/pexels-Aleksandar%20Pasaric-2506923.jpg" alt="Tokyo">
+                        </div>
+                        <div class="card-content">
+                            <h3>Tokyo</h3>
+                            <p>Japan's bustling capital where ultramodern meets traditional. From the digital art museum to historic Asakusa, Shibuya crossing to tranquil gardens, Tokyo offers endless discoveries.</p>
+                            <div class="map-container" id="tokyo-map" data-location="Tokyo, Japan"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2 -->
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://www.neverendingvoyage.com/wp-content/uploads/2019/09/kyoto-japan-26.jpg" alt="Kyoto">
+                        </div>
+                        <div class="card-content">
+                            <h3>Kyoto</h3>
+                            <p>Japan's ancient capital with over 1,600 Buddhist temples and 400 Shinto shrines. Famous for its geisha district, golden pavilion, bamboo forest, and traditional tea houses.</p>
+                            <div class="map-container" id="kyoto-map" data-location="Kyoto, Japan"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 3 -->
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://a.travel-assets.com/findyours-php/viewfinder/images/res70/477000/477571-Osaka.jpg" alt="Osaka">
+                        </div>
+                        <div class="card-content">
+                            <h3>Osaka</h3>
+                            <p>Known as Japan's kitchen, Osaka is famous for its street food, nightlife, and friendly locals. Don't miss Osaka Castle, Universal Studios Japan, and Dotonbori's neon lights.</p>
+                            <div class="map-container" id="osaka-map" data-location="Osaka, Japan"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 4 -->
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://www.datocms-assets.com/101439/1716180100-hiroshima.webp?auto=format&fit=max&w=1200" alt="Hiroshima">
+                        </div>
+                        <div class="card-content">
+                            <h3>Hiroshima</h3>
+                            <p>A city of peace with moving memorials to its tragic past. The Peace Memorial Park and nearby Miyajima Island with its floating torii gate are must-see attractions.</p>
+                            <div class="map-container" id="hiroshima-map" data-location="Hiroshima, Japan"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 5 -->
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://a-us.storyblok.com/f/1018357/1920x1278/88cc4d1daf/biei.jpg" alt="Hokkaido">
+                        </div>
+                        <div class="card-content">
+                            <h3>Hokkaido</h3>
+                            <p>Japan's northernmost island famous for powder snow, hot springs, and national parks. Visit Sapporo for the snow festival and Niseko for world-class skiing.</p>
+                            <div class="map-container" id="hokkaido-map" data-location="Hokkaido, Japan"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 6 -->
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="https://image.urlaubspiraten.de/1024/image/upload/v1628090550/mediavault_images/AdobeStock_195151713_t6vob3.jpg" alt="Okinawa">
+                        </div>
+                        <div class="card-content">
+                            <h3>Okinawa</h3>
+                            <p>A tropical paradise with white sand beaches, coral reefs, and a unique Ryukyu culture. The main island and surrounding islets offer amazing diving and a slower pace of life.</p>
+                            <div class="map-container" id="okinawa-map" data-location="Okinawa, Japan"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Food & Restaurants Section -->
+        <section class="food-section" id="food">
+            <div class="container">
+                <h2 class="section-title">Local Food & Best Restaurants</h2>
+                <div class="food-container">
+                    <!-- Food 1 -->
+                    <div class="food-card">
+                        <div class="food-img">
+                            <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Sushi">
+                        </div>
+                        <div class="food-content">
+                            <h3>Sushi</h3>
+                            <p class="price">¥2,000 - ¥20,000</p>
+                            <p>Japan's most famous culinary export - fresh raw fish on seasoned rice.</p>
+                            <p class="review">"The melt-in-your-mouth toro at Sukiyabashi Jiro is unforgettable." - David</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Food 2 -->
+                    <div class="food-card">
+                        <div class="food-img">
+                            <img src="https://images.themodernproper.com/production/posts/2017/SlowCookerCurryBeefRamen_12.jpg?w=1200&h=1200&q=60&fm=jpg&fit=crop&dm=1676687732&s=8aecbd0294436dd32a9fc48b92903ecc" alt="Ramen">
+                        </div>
+                        <div class="food-content">
+                            <h3>Ramen</h3>
+                            <p class="price">¥800 - ¥1,500</p>
+                            <p>Wheat noodles in flavorful broth with various toppings.</p>
+                            <p class="review">"Ichiran's tonkotsu ramen with customizable richness is perfection." - Sarah</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Food 3 -->
+                    <div class="food-card">
+                        <div class="food-img">
+                            <img src="https://travel.rakuten.com/contents/sites/contents/files/styles/max_1300x1300/public/2024-09/kaiseki-guide_14.jpg?itok=k354mfkR" alt="Kaiseki">
+                        </div>
+                        <div class="food-content">
+                            <h3>Kaiseki</h3>
+                            <p class="price">¥10,000 - ¥30,000</p>
+                            <p>Traditional multi-course Japanese haute cuisine.</p>
+                            <p class="review">"Kikunoi in Kyoto offers an exquisite seasonal kaiseki experience." - Michael</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Accommodation Section -->
+        <section class="accommodation" id="accommodation">
+            <div class="container">
+                <h2 class="section-title">Top Accommodation</h2>
+                
+                <div class="accommodation-container">
+                    <!-- Hotel 1 -->
+                    <div class="hotel-card">
+                        <div class="hotel-img">
+                            <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/500956610.jpg?k=893ce269de9a881e635e48f42598395fd783a6da56a2fd83894f286cd5720766&o=&hp=1" alt="Park Hotel Tokyo">
+                        </div>
+                        <div class="hotel-content">
+                            <h3>Park Hotel Tokyo</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(4.8/5)</span>
+                            </div>
+                            <p class="hotel-price">¥30,000 - ¥60,000/night</p>
+                            <p>Art-themed hotel in Shiodome with stunning views of Tokyo Tower and Tokyo Bay.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Hotel 2 -->
+                    <div class="hotel-card">
+                        <div class="hotel-img">
+                            <img src="https://media.cntraveler.com/photos/5a9324e820dfb6552425e8cd/16:9/w_2560%2Cc_limit/Hoshinoya-Tokyo_2018_HOSHINOYA-Tokyo_Kiku-Guest-Room_PhotoCred-Hoshino-Resorts.jpg" alt="Hoshinoya Kyoto">
+                        </div>
+                        <div class="hotel-content">
+                            <h3>Hoshinoya Kyoto</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(4.9/5)</span>
+                            </div>
+                            <p class="hotel-price">¥70,000 - ¥120,000/night</p>
+                            <p>Luxury ryokan (traditional inn) accessible only by boat along the Oi River.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Hotel 3 -->
+                    <div class="hotel-card">
+                        <div class="hotel-img">
+                            <img src="https://robbreport.com/wp-content/uploads/2017/09/cnrd_osaka_lobbyentrance_hr.jpg?w=1000" alt="Conrad Osaka">
+                        </div>
+                        <div class="hotel-content">
+                            <h3>Conrad Osaka</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(4.7/5)</span>
+                            </div>
+                            <p class="hotel-price">¥40,000 - ¥80,000/night</p>
+                            <p>Modern luxury hotel with panoramic city views and exceptional service.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Hotel 4 -->
+                    <div class="hotel-card">
+                        <div class="hotel-img">
+                            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/14/3c/fb/cf/caption.jpg?w=900&h=500&s=1" alt="Risonare Niseko">
+                        </div>
+                        <div class="hotel-content">
+                            <h3>Risonare Niseko</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(4.8/5)</span>
+                            </div>
+                            <p class="hotel-price">¥25,000 - ¥50,000/night</p>
+                            <p>Luxury ski-in/ski-out resort with private onsen and gourmet dining.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Travel Tips Section -->
+        <section class="travel-tips" id="tips">
+            <div class="container">
+                <h2 class="section-title">Japan Travel Tips</h2>
+                <div class="tips-grid">
+                    <!-- Tip 1 -->
+                    <div class="tip-card best-time">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h4>Best Time to Visit</h4>
+                        <p>Spring (March-May) for cherry blossoms or autumn (October-November) for fall foliage.</p>
+                        <div class="more-content">
+                            <p>Spring brings mild weather and the famous cherry blossoms (late March to early April). Summer (June-August) can be hot and humid with rainy season in June. Autumn offers crisp weather and stunning fall colors. Winter (December-February) is great for skiing in Hokkaido.</p>
+                            <img src="https://i0.wp.com/tokyotreatblog.wpcomstaging.com/wp-content/uploads/2023/01/tokyotreat_sakura-tree-thumbnail.png?fit=1024%2C683&ssl=1" alt="Cherry Blossoms" style="width:100%; margin-top:10px; border-radius:4px;">
+                        </div>
+                    </div>
+                    
+                    <!-- Tip 2 -->
+                    <div class="tip-card currency">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <h4>Currency & Payments</h4>
+                        <p>Japan is still largely a cash-based society, especially outside major cities.</p>
+                        <div class="more-content">
+                            <p>While credit cards are accepted at hotels and department stores, many restaurants, temples, and small shops only take cash. ATMs at 7-Eleven and post offices accept foreign cards. IC cards like Suica or Pasmo are convenient for transport and small purchases.</p>
+                            <img src="Picture/Japanese_Yen.jpg" alt="Japanese Yen" style="width:100%; margin-top:10px; border-radius:4px;">
+                        </div>
+                    </div>
+                    
+                    <!-- Tip 3 -->
+                    <div class="tip-card transport">
+                        <i class="fas fa-train"></i>
+                        <h4>Getting Around</h4>
+                        <p>Japan's public transportation is efficient, punctual, and extensive.</p>
+                        <div class="more-content">
+                            <p>The Japan Rail Pass is cost-effective for long-distance travel. In cities, subway and bus systems are easy to navigate with English signage. Taxis are expensive but clean and reliable. For rural areas, consider renting a car (international license required).</p>
+                            <img src="Picture/Shinkansen.jpg" alt="Shinkansen" style="width:100%; margin-top:10px; border-radius:4px;">
+                        </div>
+                    </div>
+                    
+                    <!-- Tip 4 -->
+                    <div class="tip-card etiquette">
+                        <i class="fas fa-hands-helping"></i>
+                        <h4>Cultural Etiquette</h4>
+                        <p>Japanese culture places great emphasis on manners and respect.</p>
+                        <div class="more-content">
+                            <p>Remove shoes when entering homes and some traditional establishments. Don't eat while walking. Avoid talking loudly on phones in public transport. Bowing is the traditional greeting. Never stick chopsticks upright in rice. Learn basic phrases like "arigato gozaimasu" (thank you).</p>
+                            <img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" alt="Japanese Temple" style="width:100%; margin-top:10px; border-radius:4px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3>Japan Travel Guide</h3>
+            <p>Your complete resource for planning the perfect Japanese adventure</p>
+            
+            <div class="social-links">
+                <a href="https://www.instagram.com/snappy_voyage/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61575073693914"><i class="fab fa-facebook"></i></a>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Japan Travel Guide. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Create Table of Contents
+        const toc = document.createElement('div');
+        toc.className = 'toc-container';
+        toc.innerHTML = `
+            <div class="toc-title">Sections</div>
+            <ul class="toc-list">
+                <li><a href="#overview" class="toc-link">Welcome to Japan</a></li>
+                <li><a href="#destinations" class="toc-link">Top Destinations</a></li>
+                <li><a href="#food" class="toc-link">Local Food</a></li>
+                <li><a href="#accommodation" class="toc-link">Accommodation</a></li>
+                <li><a href="#tips" class="toc-link">Travel Tips</a></li>
+            </ul>
+        `;
+        document.body.appendChild(toc);
+    
+        // Show TOC when scrolling down
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                toc.classList.add('active');
+            } else {
+                toc.classList.remove('active');
+            }
+            
+            // Highlight current section
+            const sections = document.querySelectorAll('section');
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 300)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('.toc-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    
+        // Smooth scrolling for TOC links
+        document.querySelectorAll('.toc-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+function initMap() {
+  if (!window.google || !google.maps) {
+    console.error('Google Maps API not loaded properly');
+    return;
+  }
+
+  // Coordinates fallback for major locations
+  const locations = {
+    "Tokyo, Japan": { lat: 35.6762, lng: 139.6503 },
+    "Kyoto, Japan": { lat: 35.0116, lng: 135.7681 },
+    "Osaka, Japan": { lat: 34.6937, lng: 135.5023 },
+    "Hiroshima, Japan": { lat: 34.3853, lng: 132.4553 },
+    "Hokkaido, Japan": { lat: 43.2203, lng: 142.8635 },
+    "Okinawa, Japan": { lat: 26.2124, lng: 127.6809 }
+  };
+
+  document.querySelectorAll('.map-container').forEach(container => {
+    const locationName = container.getAttribute('data-location');
+    const position = locations[locationName];
+    
+    if (position) {
+      const map = new google.maps.Map(container, {
+        center: position,
+        zoom: container.closest('.hotel-card') ? 15 : 12,
+        disableDefaultUI: true,
+        styles: [{
+          featureType: "poi",
+          stylers: [{ visibility: "off" }]
+        }]
+      });
+      
+      new google.maps.Marker({
+        position: position,
+        map: map,
+        title: locationName
+      });
+    } else {
+      container.innerHTML = `<p>Location not available: ${locationName}</p>`;
+    }
+  });
+}
+
+document.querySelectorAll('.hotel-card').forEach(card => {
+    const heart = document.createElement('i');
+    heart.className = 'fas fa-heart';
+    heart.style.position = 'absolute';
+    heart.style.top = '10px';
+    heart.style.right = '10px';
+    heart.style.cursor = 'pointer';
+    
+    const hotelName = card.querySelector('h3').textContent;
+    const favorites = JSON.parse(sessionStorage.getItem('favoriteHotels') || '[]');
+    
+    if (favorites.includes(hotelName)) {
+        heart.style.color = 'red';
+    }
+    
+    heart.addEventListener('click', function() {
+        let favorites = JSON.parse(sessionStorage.getItem('favoriteHotels') || '[]');
+        const index = favorites.indexOf(hotelName);
+        
+        if (index === -1) {
+            favorites.push(hotelName);
+            this.style.color = 'red';
+        } else {
+            favorites.splice(index, 1);
+            this.style.color = 'gray';
+        }
+        
+        sessionStorage.setItem('favoriteHotels', JSON.stringify(favorites));
+    });
+    
+    card.style.position = 'relative';
+    card.appendChild(heart);
+});
+    </script>
+</body>
+</html>
